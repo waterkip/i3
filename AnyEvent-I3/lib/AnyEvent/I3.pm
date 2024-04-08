@@ -182,6 +182,8 @@ instance on the current DISPLAY which is almost always what you want.
 sub new {
     my ($class, $path) = @_;
 
+    # We have I3SOCK now
+    $path ||= $ENV{I3SOCK};
     $path = _call_i3('--get-socketpath') unless $path;
 
     # This is the old default path (v3.*). This fallback line can be removed in
